@@ -20,15 +20,18 @@ func program() {
 		second   string
 		third    string
 		finished string
+		done     string
 	)
-	fmt.Scan(&first)
-	fmt.Scan(&second)
-	fmt.Scan(&third)
-
+	fmt.Scanln(&first)
+	fmt.Scanln(&second)
+	fmt.Scanln(&third)
 	fmt.Println("1. ", first)
 	fmt.Println("2. ", second)
 	fmt.Println("3. ", third)
-	fmt.Println("Please come back when you are done.")
+	fmt.Println("Waiting for finished!")
+	duration := time.Second
+	time.Sleep(duration)
+	fmt.Scanln()
 	create, err := os.Create("list.txt")
 	if err != nil {
 		log.Err(err)
@@ -39,9 +42,9 @@ func program() {
 		log.Err(err)
 	}
 	fmt.Scan(finished)
-	math := time.Now().Day() + 1
-	if finished == "done" {
-		fmt.Println("Come back in ", math)
+	math := time.Hour + 24
+	if finished == done {
+		fmt.Println("Come back in", math, "hours")
 	} else {
 		fmt.Println("Invalid")
 	}
