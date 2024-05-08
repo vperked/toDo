@@ -28,7 +28,7 @@ func program() {
 	fmt.Println("1. ", first)
 	fmt.Println("2. ", second)
 	fmt.Println("3. ", third)
-	fmt.Println("Waiting for finished!")
+	fmt.Println("Waiting for done!")
 	duration := time.Second
 	time.Sleep(duration)
 	fmt.Scanln()
@@ -42,9 +42,9 @@ func program() {
 		log.Err(err)
 	}
 	fmt.Scan(finished)
-	math := time.Hour + 24
+	duration = time.Hour * 24
 	if finished == done {
-		fmt.Println("Come back in", math, "hours")
+		fmt.Println("Come back in", duration, "hours")
 	} else {
 		fmt.Println("Invalid")
 	}
