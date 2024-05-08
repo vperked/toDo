@@ -22,9 +22,7 @@ func program() {
 		finished string
 		done     string
 	)
-	fmt.Scanln(&first)
-	fmt.Scanln(&second)
-	fmt.Scanln(&third)
+	fmt.Scanln(&first, &second, &third)
 	fmt.Println("1. ", first)
 	fmt.Println("2. ", second)
 	fmt.Println("3. ", third)
