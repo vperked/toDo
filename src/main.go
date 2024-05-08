@@ -16,37 +16,27 @@ func main() {
 
 func program() {
 	var (
-		first    string
-		second   string
-		third    string
-		finished string
-		done     string
+		first  string
+		second string
+		third  string
 	)
-	fmt.Scanln(&first, &second, &third)
-	fmt.Println("1. ", first)
-	fmt.Println("2. ", second)
-	fmt.Println("3. ", third)
-	fmt.Println("Waiting for done!")
+	fmt.Scan(&first, &second, &third)
+	fmt.Println("1. ", first, "2. ", second, "3. ", third)
+	fileTomfoolery(first, second, third)
+	timeLimit := time.Hour * 24
+	fmt.Println("Come back in", timeLimit)
 	duration := time.Second
 	time.Sleep(duration)
-	fmt.Scanln()
+	os.Exit(2)
+}
+
+func fileTomfoolery(first string, second string, third string) {
 	create, err := os.Create("list.txt")
 	if err != nil {
 		log.Err(err)
 	}
 	defer create.Close()
 	_, err = create.WriteString(fmt.Sprintf("%s\n%s\n%s\n", first, second, third))
-	if err != nil {
-		log.Err(err)
-	}
-	fmt.Scan(finished)
-	duration = time.Hour * 24
-	if finished == done {
-		fmt.Println("Come back in", duration, "hours")
-	} else {
-		fmt.Println("Invalid")
-	}
-	err = os.Remove("list.txt")
 	if err != nil {
 		log.Err(err)
 	}
