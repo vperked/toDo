@@ -20,8 +20,13 @@ func program() {
 		second string
 		third  string
 	)
-	fmt.Scan(&first, &second, &third)
-	fmt.Println("1. ", first, "2. ", second, "3. ", third)
+	fmt.Scan(&first)
+	fmt.Println("1." + first)
+	fmt.Scan(&second)
+	fmt.Println("2. " + second)
+	fmt.Scan(&third)
+	fmt.Println("3. " + third)
+	fmt.Println(third)
 	fileTomfoolery(first, second, third)
 	timeLimit := time.Hour * 24
 	fmt.Println("Come back in", timeLimit)
